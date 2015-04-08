@@ -22,7 +22,7 @@ class Maera_MD_Styles {
 		}
 
 		$custom_color = ( isset( $color ) && ! empty( $color ) && 'default' != $color ) ? true : false;
-		return $custom_color ? $color : get_theme_mod( 'accent_color', 'red' );
+		return $custom_color ? $color : kirki_get_option( 'accent_color' );
 
 	}
 
@@ -31,7 +31,11 @@ class Maera_MD_Styles {
 	 */
 	function body_classes( $classes ) {
 
-		$background_mode = get_theme_mod( 'background_mode', 'light' );
+		if ( ! function_exists( 'kirki_get_option' ) ) {
+			return $classes;
+		}
+
+		$background_mode = kirki_get_option( 'background_mode' );
 
 		if ( 'dark' == $background_mode ) {
 			$classes[] = 'blue-grey';
@@ -44,7 +48,7 @@ class Maera_MD_Styles {
 		$classes[] = 'accent-' . $this->color();
 		$classes[] = 'layout-' . Maera()->shell->instance->layout;
 
-		if ( 1 == get_theme_mod( 'flow_text', 1 ) ) {
+		if ( 1 == kirki_get_option( 'flow_text' ) ) {
 			$classes[] = ' flow-text';
 		}
 
@@ -59,20 +63,24 @@ class Maera_MD_Styles {
 		if ( $custom_header ) {
 			$styles .= '.header.hero .parallax-layer-back{background-image:url("' . $custom_header . '");}';
 		}
-		// $styles .= '.header.hero{color:#' . get_theme_mod( 'header_textcolor', '333333' ) . '}';
+		// $styles .= '.header.hero{color:#' . kirki_get_option( 'header_textcolor' ) . '}';
 
 		return $styles;
 
 	}
 
 	function featured_image_height( $styles ) {
-		return $styles . '.parallax-container.featured-image{height:' . get_theme_mod( 'feat_img_height', 60 ) . 'vh;}';
+		return $styles . '.parallax-container.featured-image{height:' . kirki_get_option( 'feat_img_height' ) . 'vh;}';
 	}
 
 	function hero_classes() {
 
+		if ( ! function_exists( 'kirki_get_option' ) ) {
+			return;
+		}
+
 		$colors  = Maera_MD_Data::colors();
-		$color   = get_theme_mod( 'header_color', '' );
+		$color   = kirki_get_option( 'header_color' );
 		$classes = $colors[$color]['classes'];
 
 		return $color . ' ' . $classes;
@@ -83,7 +91,7 @@ class Maera_MD_Styles {
 	* Include the custom CSS
 	*/
 	function custom_css() {
-		$css = get_theme_mod( 'css', '' );
+		$css = kirki_get_option( 'css' );
 
 		if ( ! empty( $css ) ) {
 			wp_add_inline_style( 'maera', $css );

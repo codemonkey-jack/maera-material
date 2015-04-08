@@ -65,7 +65,7 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 			$this->styles     = new Maera_MD_Styles();
 			$this->scripts    = new Maera_MD_Scripts();
 			$this->metabox    = new Maera_MD_Post_Metabox();
-			$this->layout     = get_theme_mod( 'layout', 1 );
+			$this->layout     = function_exists( 'kirki_get_option' ) ? kirki_get_option( 'layout' ) : get_theme_mod( 'layout', 1 );
 
 			// Layout modifier
 			add_action( 'wp', array( $this, 'layout' ) );
@@ -180,13 +180,17 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 			// Layout modifier
 			global $post;
 
-			$default_layout = get_theme_mod( 'layout', '0' );
+			if ( ! function_exists( 'kirki' ) ) {
+				return '1';
+			}
+
+			$default_layout = kirki_get_option( 'layout' );
 			$post_types     = get_post_types( array( 'public' => true ), 'names' );
 
 			foreach ( $post_types as $post_type ) {
 
 				if ( is_singular( $post_type ) ) {
-					$this->layout = get_theme_mod( $post_type . '_layout', $default_layout );
+					$this->layout = kirki_get_option( $post_type . '_layout' );
 				}
 
 			}
