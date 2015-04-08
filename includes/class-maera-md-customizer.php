@@ -45,7 +45,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'textarea',
-			'setting'  => 'header_content',
+			'settings' => 'header_content',
 			'label'    => __( 'Header Content', 'textdomain' ),
 			'section'  => 'header_image',
 			'default'  => '',
@@ -54,7 +54,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'select',
-			'setting'  => 'header_color',
+			'settings' => 'header_color',
 			'label'    => __( 'Header background shade', 'maera_md' ),
 			'section'  => 'header_image',
 			'default'  => 'darken-2',
@@ -64,7 +64,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'header_height',
+			'settings' => 'header_height',
 			'label'    => __( 'Header height (percentage of screen height)', 'maera_md' ),
 			'section'  => 'header_image',
 			'priority' => 30,
@@ -83,7 +83,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'checkbox',
-			'setting'  => 'header_front',
+			'settings' => 'header_front',
 			'label'    => __( 'Show only on homepage', 'maera_md' ),
 			'section'  => 'header_image',
 			'default'  => 1,
@@ -93,7 +93,7 @@ class Maera_MD_Customizer {
 		$controls[] = array(
 			'type'     => 'radio',
 			'mode'     => 'image',
-			'setting'  => 'layout',
+			'settings' => 'layout',
 			'label'    => __( 'Default Layout', 'maera_md' ),
 			'subtitle' => __( 'Select your main layout. Please note that if no widgets are present in a sidebar then that sidebar will not be displayed. ', 'maera_md' ),
 			'section'  => 'layout',
@@ -108,7 +108,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'sidebar_width',
+			'settings' => 'sidebar_width',
 			'label'    => __( 'Sidebar Width', 'maera_md' ),
 			'description' => '',
 			'section'  => 'layout',
@@ -128,12 +128,11 @@ class Maera_MD_Customizer {
 			$controls[] = array(
 				'type'     => 'radio',
 				'mode'     => 'image',
-				'setting'  => $post_type . '_layout',
+				'settings' => $post_type . '_layout',
 				'label'    => __( 'Layout for post-type: ', 'maera_md' ) . $post_type,
 				'description' => null,
 				'section'  => 'layout',
 				'priority' => 92,
-				'required' => array( 'parent_setting' => 'cpt_layout_toggle' ),
 				'default'  => $layout,
 				'choices'  => array(
 					'0' => get_template_directory_uri() . '/assets/images/1c.png',
@@ -146,7 +145,7 @@ class Maera_MD_Customizer {
 		$controls[] = array(
 			'type'     => 'radio',
 			'mode'     => 'buttonset',
-			'setting'  => 'background_mode',
+			'settings' => 'background_mode',
 			'label'    => __( 'Background Mode', 'maera_md' ),
 			'section'  => 'colors',
 			'default'  => 'light',
@@ -160,7 +159,7 @@ class Maera_MD_Customizer {
 		$controls[] = array(
 			'type'     => 'radio',
 			'mode'     => 'image',
-			'setting'  => 'accent_color',
+			'settings' => 'accent_color',
 			'subtitle' => __( 'Please select a color. This will change the color of the navbar, links and the footer.', 'maera_md' ),
 			'label'    => __( 'Accent Color', 'maera_md' ),
 			'section'  => 'colors',
@@ -191,7 +190,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'checkbox',
-			'setting'  => 'navbar_disable',
+			'settings' => 'navbar_disable',
 			'label'    => __( 'Disable the Navbar', 'maera_md' ),
 			'section'  => 'nav',
 			'priority' => 30,
@@ -200,7 +199,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'feat_img_height',
+			'settings' => 'feat_img_height',
 			'label'    => __( 'Featured Image Height on Archives', 'maera_md' ),
 			'subtitle' => __( 'Set to 0 if you want to completely disable featured images on archives', 'maera_md' ),
 			'section'  => 'blog',
@@ -215,7 +214,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'select',
-			'setting'  => 'blog_mode',
+			'settings' => 'blog_mode',
 			'label'    => __( 'Archive display mode', 'maera_md' ),
 			'section'  => 'blog',
 			'default'  => 'excerpt',
@@ -228,7 +227,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'excerpt_length',
+			'settings' => 'excerpt_length',
 			'label'    => __( 'Excerpt Length', 'maera_md' ),
 			'subtitle' => __( 'Set to 0 if you want to completely disable featured images on archives', 'maera_md' ),
 			'section'  => 'blog',
@@ -243,7 +242,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'text',
-			'setting'  => 'read_more',
+			'settings' => 'read_more',
 			'label'    => __( 'Read More label', 'maera_md' ),
 			'section'  => 'blog',
 			'priority' => 10,
@@ -252,7 +251,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'textarea',
-			'setting'  => 'css',
+			'settings' => 'css',
 			'label'    => __( 'Custom CSS', 'maera_md' ),
 			'subtitle' => __( 'You can write your custom CSS here. This code will appear in a style tag appended in the header section of the page.', 'maera_md' ),
 			'section'  => 'advanced',
@@ -262,7 +261,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'textarea',
-			'setting'  => 'js',
+			'settings' => 'js',
 			'label'    => __( 'Custom JS', 'maera_md' ),
 			'subtitle' => __( 'You can write your custom JavaScript/jQuery here. The code will be included in a script tag appended to the bottom of the page.', 'maera_md' ),
 			'section'  => 'advanced',
@@ -272,7 +271,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'checkbox',
-			'setting'  => 'flow_text',
+			'settings' => 'flow_text',
 			'label'    => __( 'Enable flow-text', 'maera_md' ),
 			'section'  => 'typography',
 			'default'  => 1,
@@ -281,7 +280,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
             'type'     => 'select',
-            'setting'  => 'font_base_family',
+            'settings' => 'font_base_family',
             'label'    => __( 'Base font', 'maera_md' ),
             'section'  => 'typography',
             'default'  => '"Roboto"',
@@ -295,7 +294,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
             'type'     => 'select',
-            'setting'  => 'font_headers_family',
+            'settings' => 'font_headers_family',
             'label'    => __( 'Headers font', 'maera_md' ),
             'section'  => 'typography',
             'default'  => "Roboto Slab",
@@ -309,7 +308,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
             'type'     => 'multicheck',
-            'setting'  => 'font_subsets',
+            'settings' => 'font_subsets',
             'label'    => __( 'Google-Font subsets', 'maera_md' ),
             'description' => __( 'The subsets used from Google\'s API.', 'maera_md' ),
             'section'  => 'typography',
@@ -324,7 +323,7 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'base_font_size',
+			'settings' => 'base_font_size',
 			'label'    => __( 'Base font-size', 'maera_md' ),
 			'section'  => 'typography',
 			'priority' => 20,
@@ -343,7 +342,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_base_weight',
+            'settings' => 'font_base_weight',
             'label'    => __( 'Base Font Weight', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 300,
@@ -361,7 +360,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_base_height',
+            'settings' => 'font_base_height',
             'label'    => __( 'Base Line Height', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 1.43,
@@ -379,7 +378,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_headers_weight_h1',
+            'settings' => 'font_headers_weight_h1',
             'label'    => __( 'H1 Font Weight', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 900,
@@ -397,7 +396,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_headers_weight_h2',
+            'settings' => 'font_headers_weight_h2',
             'label'    => __( 'H2 Font Weight', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 800,
@@ -415,7 +414,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_headers_weight_h3',
+            'settings' => 'font_headers_weight_h3',
             'label'    => __( 'H2 Font Weight', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 600,
@@ -433,7 +432,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_headers_weight_h4',
+            'settings' => 'font_headers_weight_h4',
             'label'    => __( 'H4 Font Weight', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 400,
@@ -451,7 +450,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_h1_size',
+            'settings' => 'font_h1_size',
             'label'    => __( 'H1 Font Size', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 52,
@@ -470,7 +469,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_h2_size',
+            'settings' => 'font_h2_size',
             'label'    => __( 'H2 Font Size', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 36,
@@ -489,7 +488,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_h3_size',
+            'settings' => 'font_h3_size',
             'label'    => __( 'H3 Font Size', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 24,
@@ -508,7 +507,7 @@ class Maera_MD_Customizer {
 
         $controls[] = array(
             'type'     => 'slider',
-            'setting'  => 'font_h4_size',
+            'settings' => 'font_h4_size',
             'label'    => __( 'H4 Font Size', 'maera_md' ),
             'section'  => 'typography',
             'default'  => 18,
