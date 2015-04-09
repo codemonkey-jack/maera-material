@@ -97,7 +97,7 @@ class Maera_MD_Customizer {
 			'label'    => __( 'Default Layout', 'maera_md' ),
 			'subtitle' => __( 'Select your main layout. Please note that if no widgets are present in a sidebar then that sidebar will not be displayed. ', 'maera_md' ),
 			'section'  => 'layout',
-			'priority' => 3,
+			'priority' => 10,
 			'default'  => 0,
 			'choices'  => array(
 				'0' => get_template_directory_uri() . '/assets/images/1c.png',
@@ -108,11 +108,31 @@ class Maera_MD_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
+			'settings' => 'site_width',
+			'label'    => __( 'Maximum container width', 'maera_md' ),
+			'subtitle' => __( 'Select the maximum container width for your site.', 'maera_md' ),
+			'section'  => 'layout',
+			'priority' => 20,
+			'default'  => 1280,
+			'choices'  => array(
+				'min'  => 640,
+				'max'  => 2600,
+				'step' => 1,
+			),
+			'output'   => array(
+				'element'  => '.container',
+				'property' => 'max-width',
+				'units'    => 'px !important'
+			)
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
 			'settings' => 'sidebar_width',
 			'label'    => __( 'Sidebar Width', 'maera_md' ),
 			'description' => '',
 			'section'  => 'layout',
-			'priority' => 2,
+			'priority' => 30,
 			'default'  => 4,
 			'choices'  => array(
 				'min'  => 1,
