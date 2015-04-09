@@ -422,3 +422,14 @@ input {
 textarea#comment {
     min-height: 8em;
 }
+
+@media #{$medium-and-up} {
+  .container {
+    width: 90%;
+  }
+}
+@media #{$large-and-up} {
+  .container {
+    width: 85%;
+  }
+}
