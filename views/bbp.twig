@@ -7,7 +7,7 @@
 
 	<article {{ function( 'post_class' ) }} id="content-{{ post.ID }}" itemscope itemtype="http://schema.org/WebPage">
 
-		<div class="{{ grid.container() }} entry-content" itemprop="text">
+		<div class="{{ grid.container() }} entry-content{% if theme.theme_mod('flow_text_content') == 1 %} flow-text{% endif %}" itemprop="text">
 			{% do action( 'maera/single/pre_content', post.ID ) %}
 			{{ content }}
 			{% do action( 'maera/single/after_content', post.ID ) %}

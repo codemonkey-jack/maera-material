@@ -255,6 +255,16 @@ class Maera_MD_Customizer {
 		);
 
 		$fields[] = array(
+			'type'     => 'toggle',
+			'settings' => 'feat_img_post_only',
+			'label'    => __( 'Show featured images on posts only', 'maera_md' ),
+			'description' => __( 'Featured images by default are only enabled for posts. If you want to enable them for other post types as well then please de-select this option.', 'maera_md' ),
+			'section'  => 'blog',
+			'default'  => 1,
+			'priority' => 2,
+		);
+
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'feat_img_height',
 			'label'    => __( 'Featured Image Height on Archives', 'maera_md' ),
@@ -327,12 +337,29 @@ class Maera_MD_Customizer {
 		);
 
 		$fields[] = array(
+			'type'     => 'custom',
+			'settings' => 'flow_text_explanation',
+			'section'  => 'typography',
+			'default'  => __( 'Flow Text will make the font-sizes responsive and dependand on the visitor\'s screen-size.', 'maera_md' ),
+			'priority' => 1,
+		);
+
+		$fields[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'flow_text',
-			'label'    => __( 'Enable flow-text', 'maera_md' ),
+			'label'    => __( 'Enable flow-text everywhere', 'maera_md' ),
+			'section'  => 'typography',
+			'default'  => 0,
+			'priority' => 2,
+		);
+
+		$fields[] = array(
+			'type'     => 'checkbox',
+			'settings' => 'flow_text_content',
+			'label'    => __( 'Enable flow-text on content', 'maera_md' ),
 			'section'  => 'typography',
 			'default'  => 1,
-			'priority' => 1,
+			'priority' => 3,
 		);
 
 		$fields[] = array(
