@@ -9,7 +9,11 @@
 		{% do action( 'maera/header/before', post.ID ) %}
 		{% if not theme.theme_mod('navbar_disable', 0) %}
 			{% set navwrapper = 'nav-wrapper' %}
-			{% include 'main-menu.twig' %}
+			{% if theme.theme_mod('nav_mode', 0) == 0 %}
+				{% include 'main-menu.twig' %}
+			{% else %}
+				{% include 'alt-nav.twig' %}
+			{% endif %}
 		{% endif %}
 
 		{% if not theme.theme_mod('header_front', 1) or ( theme.theme_mod('header_front', 1) and function('is_front_page') ) %}
