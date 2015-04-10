@@ -72,6 +72,8 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 
 			// Add theme supports
 			add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+			// Add extra nav areas
+			add_action( 'after_setup_theme', array( $this, 'nav' ) );
 
 		}
 
@@ -171,6 +173,16 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 				return $image_url;
 			}
 
+		}
+
+		/**
+		 * Register additional menus
+		 */
+		public function nav() {
+			register_nav_menus( array(
+				'offcanvas'  => __( 'Offcanvas - Left', 'ornea' ),
+				'horizontal' => __( 'Horizontal Menu (scrolling)', 'ornea' ),
+			) );
 		}
 
 		/**
