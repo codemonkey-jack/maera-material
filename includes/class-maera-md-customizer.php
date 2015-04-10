@@ -218,6 +218,16 @@ class Maera_MD_Customizer {
 		);
 
 		$controls[] = array(
+			'type'     => 'switch',
+			'settings' => 'nav_mode',
+			'label'    => __( 'Use combined nav', 'maera_md' ),
+			'description' => __( 'If you turn on the combined nav then the primary navigation will no longer be used and instead the other 2 menus will be used.', 'maera_md' ),
+			'section'  => 'nav',
+			'priority' => 0,
+			'default'  => 0,
+		);
+
+		$controls[] = array(
 			'type'     => 'slider',
 			'settings' => 'feat_img_height',
 			'label'    => __( 'Featured Image Height on Archives', 'maera_md' ),
