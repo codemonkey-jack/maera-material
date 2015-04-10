@@ -8945,3 +8945,10 @@ body.dark-mode {
   font-size: 1rem; }
   .offcanvas-sidebar .card .card-content {
     padding: 0; }
+
+.card .card-title {
+  color: #222; }
+.card.white-text {
+  color: #fff; }
+  .card.white-text .card-title {
+    color: #fff; }

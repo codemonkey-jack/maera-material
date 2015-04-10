@@ -792,3 +792,15 @@ body.dark-mode {
         }
     }
 }
+
+.card {
+    .card-title {
+        color: #222;
+    }
+    &.white-text {
+        color: #fff;
+        .card-title {
+            color: #fff;
+        }
+    }
+}
