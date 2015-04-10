@@ -36,6 +36,8 @@ class Maera_MD_Styles {
 		}
 
 		$background_mode = kirki_get_option( 'background_mode' );
+		$nav_mode        = kirki_get_option( 'nav_mode' );
+		$navbar_disable  = kirki_get_option( 'navbar_disable' );
 
 		if ( 'dark' == $background_mode ) {
 			$classes[] = 'blue-grey';
@@ -50,6 +52,10 @@ class Maera_MD_Styles {
 
 		if ( 1 == kirki_get_option( 'flow_text' ) ) {
 			$classes[] = ' flow-text';
+		}
+
+		if ( 'static-left' == $nav_mode && ! $navbar_disable ) {
+			$classes[] = 'static-left-nav';
 		}
 
 		return $classes;

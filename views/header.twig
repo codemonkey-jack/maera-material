@@ -8,11 +8,10 @@
 		{% do action( 'get_header' ) %}
 		{% do action( 'maera/header/before', post.ID ) %}
 		{% if not theme.theme_mod('navbar_disable', 0) %}
-			{% set navwrapper = 'nav-wrapper' %}
-			{% if theme.theme_mod('nav_mode', 0) == 0 %}
-				{% include 'main-menu.twig' %}
+			{% if theme.theme_mod('nav_mode', 'default' ) == 'combo' %}
+				{% include 'nav/combined-offcanvas.twig' %}
 			{% else %}
-				{% include 'alt-nav.twig' %}
+				{% include 'nav/default.twig' %}
 			{% endif %}
 		{% endif %}
 

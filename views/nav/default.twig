@@ -1,4 +1,4 @@
-<nav class="{{ red|apply_filters('maera/nav/class') }} lighten-1">
+<nav class="{{ red|apply_filters('maera/nav/class') }} lighten-1{% if theme.theme_mod('nav_mode') == 'static-left' %} hide-on-large-only{% endif %}">
 	{% block header %}
 		<div class="nav-wrapper">
 			<div class="container">
@@ -27,15 +27,16 @@
 							</li>
 						{% endfor %}
 					</ul>
-					<ul class="side-nav" id="mobile-menu">
-						{% for item in menu.primary.items %}
-							<li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
-								<a href="{{item.link}}">{{ item.title }}</a>
-							</li>
-						{% endfor %}
-					</ul>
 				</div>
 			</div>
 		</div>
 	{% endblock %}
 </nav>
+<ul class="side-nav{% if theme.theme_mod('nav_mode') == 'static-left' %} fixed{% endif %}" id="mobile-menu">
+	<li><h1>{% include 'site-logo.twig' %}</h1></li>
+	{% for item in menu.primary.items %}
+		<li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+			<a href="{{item.link}}">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+</ul>

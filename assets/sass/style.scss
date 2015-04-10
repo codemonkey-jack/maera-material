@@ -721,6 +721,9 @@ body.admin-bar {
 	.offcanvas-sidebar {
 		padding-top: 40px;
 	}
+    .side-nav {
+        padding-top: 32px;
+    }
 }
 
 @media screen and (max-width: 782px) {
@@ -732,6 +735,9 @@ body.admin-bar {
 		.offcanvas-sidebar {
 			padding-top: 50px;
 		}
+        .side-nav {
+            padding-top: 46px;
+        }
 	}
 }
 
@@ -802,5 +808,14 @@ body.dark-mode {
         .card-title {
             color: #fff;
         }
+    }
+}
+
+body.static-left-nav {
+    padding-left: 240px;
+}
+@media #{$medium-and-down} {
+    body.static-left-nav {
+        padding-left: 0;
     }
 }

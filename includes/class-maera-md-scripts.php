@@ -26,7 +26,7 @@ class Maera_MD_Scripts {
 		wp_register_script( 'materialize-js', MAERA_MATERIAL_SHELL_URL . '/assets/js/materialize.min.js', false, null, true  );
 		wp_enqueue_script( 'materialize-js' );
 
-		if ( kirki_get_option( 'nav_mode' ) ) {
+		if ( 'combo' == kirki_get_option( 'nav_mode' ) ) {
 			wp_register_script( 'jquery-sticky', MAERA_MATERIAL_SHELL_URL . '/assets/js/jquery.sticky.js', false, null, true  );
 			wp_register_script( 'jquery-swiper', MAERA_MATERIAL_SHELL_URL . '/assets/js/swiper.jquery.js', false, null, true  );
 			wp_register_script( 'maera-material-navigation', MAERA_MATERIAL_SHELL_URL . '/assets/js/navigation.js', false, null, true  );

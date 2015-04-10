@@ -164,8 +164,7 @@ class Maera_MD_Customizer {
 
 		foreach ( $post_types as $post_type ) {
 			$fields[] = array(
-				'type'     => 'radio',
-				'mode'     => 'image',
+				'type'     => 'radio-image',
 				'settings' => $post_type . '_layout',
 				'label'    => __( 'Layout for post-type: ', 'maera_md' ) . $post_type,
 				'description' => null,
@@ -229,8 +228,8 @@ class Maera_MD_Customizer {
 		$fields[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'navbar_disable',
-			'label'    => __( 'Disable the Navbar', 'maera_md' ),
-			'description' => __( 'Conpletely disable the navbar', 'maera_md' ),
+			'label'    => __( 'Disable Navigation', 'maera_md' ),
+			'description' => __( 'Completely disable navigation', 'maera_md' ),
 			'section'  => 'nav_options',
 			'priority' => 10,
 			'default'  => 0,
@@ -245,13 +244,18 @@ class Maera_MD_Customizer {
 		);
 
 		$fields[] = array(
-			'type'     => 'switch',
+			'type'     => 'radio-buttonset',
 			'settings' => 'nav_mode',
-			'label'    => __( 'Use combined nav', 'maera_md' ),
-			'description' => __( 'When "combined nav" is turned on, your site will display a navbar that will contain the site logo, a searchbar, breadcrumbs and 2 menus: offcanvas and horizontal. Please note that the primary menu will no longer be used, and the new menus are non-hierarchical.', 'maera_md' ),
+			'label'    => __( 'Navigation mode', 'maera_md' ),
+			// 'description' => __( 'When "combined nav" is turned on, your site will display a navbar that will contain the site logo, a searchbar, breadcrumbs and 2 menus: offcanvas and horizontal. Please note that the primary menu will no longer be used, and the new menus are non-hierarchical.', 'maera_md' ),
 			'section'  => 'nav_options',
 			'priority' => 20,
-			'default'  => 0,
+			'default'  => 'default',
+			'choices'  => array(
+				'static-left' => __( 'Left', 'maera_md' ),
+				'default'     => __( 'Default', 'maera_md' ),
+				'combo'       => __( 'Combo', 'maera_md' ),
+			),
 		);
 
 		$fields[] = array(

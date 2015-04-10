@@ -8915,13 +8915,17 @@ body.admin-bar #masthead {
 body.admin-bar .left-offcanvas-menu,
 body.admin-bar .offcanvas-sidebar {
   padding-top: 40px; }
+body.admin-bar .side-nav {
+  padding-top: 32px; }
 
 @media screen and (max-width: 782px) {
   body.admin-bar #masthead {
     top: 46px !important; }
   body.admin-bar .left-offcanvas-menu,
   body.admin-bar .offcanvas-sidebar {
-    padding-top: 50px; } }
+    padding-top: 50px; }
+  body.admin-bar .side-nav {
+    padding-top: 46px; } }
 .close-button-wrapper {
   width: 100%; }
   .close-button-wrapper.search {
@@ -8952,3 +8956,10 @@ body.dark-mode {
   color: #fff; }
   .card.white-text .card-title {
     color: #fff; }
+
+body.static-left-nav {
+  padding-left: 240px; }
+
+@media only screen and (max-width: 992px) {
+  body.static-left-nav {
+    padding-left: 0; } }
