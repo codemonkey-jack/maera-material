@@ -1,6 +1,13 @@
 {#<?php#}
 {% import 'grid_classes.html.twig' as grid %}
 
+{% if function('is_active_sidebar', 'offcanvas' ) %}
+	<div class="offcanvas-sidebar">
+		<div class="close-button-wrapper sidebar"><span class="close dashicons dashicons-no"></span></div>
+		{{ sidebar.offcanvas }}
+	</div>
+{% endif %}
+
 <footer class="{{ red|apply_filters('maera/nav/class') }} lighten-2">
 	{% do action( 'maera/footer/before', post.ID ) %}
 	<div class="page-footer">
