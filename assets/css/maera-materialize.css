@@ -8682,7 +8682,6 @@ textarea#comment {
 
 #header-wrapper {
   padding: 10px;
-  background: #000;
   position: relative;
   width: 100% !important;
   z-index: 999;
@@ -8797,7 +8796,6 @@ textarea#comment {
       border: none;
       background: none;
       background: transparent;
-      color: #fff;
       font-size: 20px;
       height: 1em;
       width: 300px;
@@ -8819,8 +8817,6 @@ textarea#comment {
   padding: 0;
   position: fixed;
   left: -300px; }
-  .left-offcanvas-menu .close {
-    color: #fff; }
   .left-offcanvas-menu ul {
     margin: 0;
     padding: 0;
@@ -8828,7 +8824,6 @@ textarea#comment {
     list-style-type: none; }
     .left-offcanvas-menu ul li a {
       display: block;
-      color: #fff;
       padding: .65em 1em;
       border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
 
@@ -8846,8 +8841,6 @@ textarea#comment {
   padding-left: 20px;
   padding-right: 600px;
   border-top: 1px solid rgba(255, 255, 255, 0.3); }
-  .horizontal-menu a {
-    color: #fff; }
 
 .swiper-slide {
   display: inline-block;
@@ -8886,8 +8879,6 @@ h1.site-title {
   font-size: 1em;
   line-height: 1em;
   margin: 0; }
-  h1.site-title a {
-    color: #fff; }
 
 .horizontal-menu-container {
   max-width: 100% !important; }
@@ -8901,7 +8892,6 @@ h1.site-title {
       .horizontal-menu-container ul li ul {
         display: inline-block; }
       .horizontal-menu-container ul li a {
-        color: #fff;
         padding: 5px 10px; }
 
 #masthead {
@@ -8936,3 +8926,8 @@ body.admin-bar .offcanvas-sidebar {
     text-align: left; }
   .close-button-wrapper.sidebar {
     text-align: right; }
+
+#header-wrapper.red a, #header-wrapper.red a:hover, #header-wrapper.red input, #header-wrapper.red .dashicons, #header-wrapper.pink a, #header-wrapper.pink a:hover, #header-wrapper.pink input, #header-wrapper.pink .dashicons, #header-wrapper.purple a, #header-wrapper.purple a:hover, #header-wrapper.purple input, #header-wrapper.purple .dashicons, #header-wrapper.deep-purple a, #header-wrapper.deep-purple a:hover, #header-wrapper.deep-purple input, #header-wrapper.deep-purple .dashicons, #header-wrapper.indigo a, #header-wrapper.indigo a:hover, #header-wrapper.indigo input, #header-wrapper.indigo .dashicons, #header-wrapper.blue a, #header-wrapper.blue a:hover, #header-wrapper.blue input, #header-wrapper.blue .dashicons, #header-wrapper.light-blue a, #header-wrapper.light-blue a:hover, #header-wrapper.light-blue input, #header-wrapper.light-blue .dashicons, #header-wrapper.cyan a, #header-wrapper.cyan a:hover, #header-wrapper.cyan input, #header-wrapper.cyan .dashicons, #header-wrapper.teal a, #header-wrapper.teal a:hover, #header-wrapper.teal input, #header-wrapper.teal .dashicons, #header-wrapper.green a, #header-wrapper.green a:hover, #header-wrapper.green input, #header-wrapper.green .dashicons, #header-wrapper.deep-orange a, #header-wrapper.deep-orange a:hover, #header-wrapper.deep-orange input, #header-wrapper.deep-orange .dashicons, #header-wrapper.brown a, #header-wrapper.brown a:hover, #header-wrapper.brown input, #header-wrapper.brown .dashicons, #header-wrapper.grey a, #header-wrapper.grey a:hover, #header-wrapper.grey input, #header-wrapper.grey .dashicons, #header-wrapper.blue-grey a, #header-wrapper.blue-grey a:hover, #header-wrapper.blue-grey input, #header-wrapper.blue-grey .dashicons {
+  color: #fff; }
+#header-wrapper.light-green a, #header-wrapper.light-green a:hover, #header-wrapper.light-green input, #header-wrapper.light-green .dashicons, #header-wrapper.lime a, #header-wrapper.lime a:hover, #header-wrapper.lime input, #header-wrapper.lime .dashicons, #header-wrapper.yellow a, #header-wrapper.yellow a:hover, #header-wrapper.yellow input, #header-wrapper.yellow .dashicons, #header-wrapper.amber a, #header-wrapper.amber a:hover, #header-wrapper.amber input, #header-wrapper.amber .dashicons, #header-wrapper.orange a, #header-wrapper.orange a:hover, #header-wrapper.orange input, #header-wrapper.orange .dashicons {
+  color: #222; }

@@ -464,7 +464,6 @@ textarea#comment {
 
 #header-wrapper {
 	padding: 10px;
-	background: #000;
 	position: relative;
 	width: 100% !important;
 	z-index: 999;
@@ -556,7 +555,6 @@ textarea#comment {
 			border: none;
 			background: none;
 			background: transparent;
-			color: #fff;
 			font-size: 20px;
 			height: 1em;
 			width: 300px;
@@ -584,7 +582,6 @@ textarea#comment {
 	position: fixed;
 	left: -300px;
 	.close {
-		color: #fff;
 		@extend %offcanvas_close;
 	}
 	>div > ul {
@@ -597,7 +594,6 @@ textarea#comment {
 		li {
 			a{
 				display: block;
-				color: #fff;
 				padding: .65em 1em;
 				border-bottom: 1px solid rgba(255,255,255,.3);
 			}
@@ -621,9 +617,6 @@ textarea#comment {
 	padding-left: 20px;
 	padding-right: 600px;
 	border-top: 1px solid rgba(255,255,255,.3);
-	a {
-		color: #fff;
-	}
 }
 .swiper-slide {
 	display: inline-block;
@@ -678,9 +671,6 @@ h1.site-title {
 	font-size: 1em;
 	line-height: 1em;
 	margin: 0;
-	a {
-		color: #fff;
-	}
 }
 
 .horizontal-menu-container {
@@ -696,15 +686,10 @@ h1.site-title {
 				display: inline-block;
 			}
 			a {
-				color: #fff;
 				padding: 5px 10px;
 			}
 		}
 	}
-	.swiper-wrapper {
-		// width: 3000px !important;
-	}
-
 }
 
 #masthead {
@@ -756,4 +741,35 @@ body.admin-bar {
 	&.sidebar {
 		text-align: right;
 	}
+}
+
+#header-wrapper {
+    &.red,
+    &.pink,
+    &.purple,
+    &.deep-purple,
+    &.indigo,
+    &.blue,
+    &.light-blue,
+    &.cyan,
+    &.teal,
+    &.green,
+    &.deep-orange,
+    &.brown,
+    &.grey,
+    &.blue-grey {
+        a, a:hover, input, .dashicons {
+            color: #fff;
+        }
+    }
+
+    &.light-green,
+    &.lime,
+    &.yellow,
+    &.amber,
+    &.orange {
+        a, a:hover, input, .dashicons {
+            color: #222;
+        }
+    }
 }
