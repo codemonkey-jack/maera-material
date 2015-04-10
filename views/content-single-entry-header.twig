@@ -3,7 +3,7 @@
 	{% if layout == '0' %}
 
 		{% if post.thumbnail and theme.theme_mod('feat_img_height', 60) %}
-			{% if post.type != 'post' and theme.theme_mod('feat_img_post_only', 1) %}
+			{% if ( post.post_type != 'post' and theme.theme_mod('feat_img_post_only', 1) != 1 ) or post.post_type == 'post' %}
 				<div class="parallax-container featured-image">
 					<div class="parallax">
 						<img class="featured-image" src="{{ post.get_thumbnail.get_src }}">
@@ -20,7 +20,7 @@
 	{% else %}
 
 		{% if post.thumbnail and theme.theme_mod('feat_img_height', 60) %}
-			{% if post.type != 'post' and theme.theme_mod('feat_img_post_only', 1) %}
+			{% if ( post.post_type != 'post' and theme.theme_mod('feat_img_post_only', 1) != 1 ) or post.post_type == 'post' %}
 				<div class="featured-image">
 					<a class="featured-image" href="{{ post.link }}">
 						<img class="featured-image" src="{{ post.thumbnail.src }}">
