@@ -8936,3 +8936,12 @@ body.admin-bar .offcanvas-sidebar {
 
 body.dark-mode {
   color: #fff; }
+
+.offcanvas-sidebar .card {
+  box-shadow: none;
+  background-color: none;
+  background: none;
+  border: none;
+  font-size: 1rem; }
+  .offcanvas-sidebar .card .card-content {
+    padding: 0; }

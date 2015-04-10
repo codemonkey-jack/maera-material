@@ -57,7 +57,7 @@ class Maera_MD_Widgets {
 			'id'            => 'sidebar_header',
 			'before_widget' => '<section id="%1$s" class="card widget %2$s"><div class="card-content">',
 			'after_widget'  => '<div></section>',
-			'before_title'  => '<h3 class="widget-title card-title"',
+			'before_title'  => '<h3 class="widget-title card-title">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -66,7 +66,7 @@ class Maera_MD_Widgets {
 			'id'            => 'sidebar_footer',
 			'before_widget' => '<section id="%1$s" class="card widget %2$s"><div class="card-content">',
 			'after_widget'  => '<div></section>',
-			'before_title'  => '<h3 class="widget-title card-title"',
+			'before_title'  => '<h3 class="widget-title card-title">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -76,7 +76,7 @@ class Maera_MD_Widgets {
 			'description'   => __( 'Offcanvas - Right', 'ornea' ),
 			'before_widget' => '<section id="%1$s" class="card widget %2$s"><div class="card-content">',
 			'after_widget'  => '<div></section>',
-			'before_title'  => '<h3 class="widget-title card-title"',
+			'before_title'  => '<h3 class="widget-title card-title">',
 			'after_title'   => '</h3>',
 		) );
 

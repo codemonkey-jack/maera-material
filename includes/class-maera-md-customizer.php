@@ -37,6 +37,7 @@ class Maera_MD_Customizer {
 			'nav_options'  => array( 'title' => __( 'Navigation Options', 'maera_md' ), 'priority' => 20, 'panel' => 'navigation' ),
 			'nav_bg'       => array( 'title' => __( 'Navbar Background', 'maera_md' ),  'priority' => 30, 'panel' => 'navigation' ),
 			'offcanvas'    => array( 'title' => __( 'Off-Canvas Menu', 'maera_md' ),    'priority' => 40, 'panel' => 'navigation', 'description' => __( 'The off-canvas menu is only isible if you select the combined nav mode.', 'maera_md' ) ),
+			'offcanvas_wa' => array( 'title' => __( 'Off-Canvas Sidebar', 'maera_md' ), 'priority' => 50, 'panel' => 'navigation', 'description' => __( 'The off-canvas widget area is only isible if you select the combined nav mode.', 'maera_md' ) ),
 
 		);
 
@@ -623,6 +624,36 @@ class Maera_MD_Customizer {
 		    'priority'    => 10,
 		    'output'      => array(
 				'element'  => '.left-offcanvas-menu, .left-offcanvas-menu a, .left-offcanvas-menu a:hover, .left-offcanvas-menu a:visited, .left-offcanvas-menu a:active, .left-offcanvas-menu .dashicons',
+				'property' => 'color',
+			),
+		);
+
+		$fields[] = array(
+		    'type'        => 'background',
+		    'setting'     => 'offcanvas_wa_background',
+		    'label'       => __( 'Background for the off-canvas widget area', 'kirki' ),
+		    'section'     => 'offcanvas_wa',
+		    'default'     => array(
+		        'color'    => 'rgba(38, 50, 56, .95)',
+		        'image'    => '',
+		        'repeat'   => 'no-repeat',
+		        'size'     => 'cover',
+		        'attach'   => 'fixed',
+		        'position' => 'left-top',
+		    ),
+		    'priority'    => 10,
+		    'output'      => '.offcanvas-sidebar',
+		);
+
+		$fields[] = array(
+		    'type'        => 'color',
+		    'setting'     => 'offcanvas_wa_color',
+		    'label'       => __( 'Text Color for the off-canvas widget area', 'kirki' ),
+		    'section'     => 'offcanvas',
+		    'default'     => '#ffffff',
+		    'priority'    => 10,
+		    'output'      => array(
+				'element'  => '.offcanvas-sidebar, .offcanvas-sidebar a, .offcanvas-sidebar a:hover, .offcanvas-sidebar a:visited, .offcanvas-sidebar a:active, .offcanvas-sidebar .dashicons',
 				'property' => 'color',
 			),
 		);

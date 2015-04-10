@@ -779,3 +779,16 @@ body.admin-bar {
 body.dark-mode {
     color: #fff;
 }
+
+.offcanvas-sidebar {
+    .card {
+        box-shadow: none;
+        background-color: none;
+        background: none;
+        border: none;
+        font-size: 1rem;
+        .card-content {
+            padding: 0;
+        }
+    }
+}
