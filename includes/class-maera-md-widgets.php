@@ -70,7 +70,17 @@ class Maera_MD_Widgets {
 			'after_title'   => '</h3>',
 		) );
 
-		}
+		register_sidebar( array(
+			'name'          => __( 'Offcanvas - Right', 'maera_md' ),
+			'id'            => 'offcanvas',
+			'description'   => __( 'Offcanvas - Right', 'ornea' ),
+			'before_widget' => '<section id="%1$s" class="card widget %2$s"><div class="card-content">',
+			'after_widget'  => '<div></section>',
+			'before_title'  => '<h3 class="widget-title card-title"',
+			'after_title'   => '</h3>',
+		) );
+
+	}
 
 	function widget_class() {
 		return 'card';
