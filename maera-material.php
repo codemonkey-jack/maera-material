@@ -52,6 +52,10 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 		*/
 		public function __construct() {
 
+			if ( ! function_exists( 'kirki_get_option' ) ) {
+				return;
+			}
+
 			if ( ! defined( 'MAERA_SHELL_PATH' ) ) {
 				define( 'MAERA_SHELL_PATH', dirname( __FILE__ ) );
 			}
@@ -65,7 +69,7 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 			$this->styles     = new Maera_MD_Styles();
 			$this->scripts    = new Maera_MD_Scripts();
 			$this->metabox    = new Maera_MD_Post_Metabox();
-			$this->layout     = function_exists( 'kirki_get_option' ) ? kirki_get_option( 'layout' ) : get_theme_mod( 'layout', 1 );
+			$this->layout     = kirki_get_option( 'layout' );
 
 			// Layout modifier
 			add_action( 'wp', array( $this, 'layout' ) );

@@ -5,7 +5,7 @@ class Maera_MD_Customizer {
 	function __construct() {
 
 		add_action( 'customize_register', array( $this, 'customizer_sections' ) );
-		add_filter( 'kirki/controls', array( $this, 'settings' ) );
+		add_filter( 'kirki/fields', array( $this, 'fields' ) );
 
 	}
 
@@ -14,13 +14,30 @@ class Maera_MD_Customizer {
 	 */
 	function customizer_sections( $wp_customize ) {
 
+		/**
+		 * Add panels
+		 */
+		$wp_customize->add_panel( 'navigation', array(
+			'priority'    => 10,
+			'title'       => __( 'Navigation', 'kirki' ),
+		) );
+
+		// Remove the default navigation section
+		$wp_customize->remove_section( 'nav' );
+
 		$sections = array(
-			'layout'       => array( 'title' => __( 'Layout', 'maera_md' ), 'priority' => 20, ),
-			'typography'   => array( 'title' => __( 'Typography', 'maera_md' ), 'priority' => 30, ),
-			'colors'       => array( 'title' => __( 'Colors', 'maera_md' ), 'priority' => 40, ),
-			'blog'         => array( 'title' => __( 'Blog', 'maera_md' ), 'priority' => 50, ),
-			'header_image' => array( 'title' => __( 'Header', 'maera_md' ), 'priority' => 10 ),
-			'advanced'     => array( 'title' => __( 'Advanced', 'maera_md' ), 'priority' => 200 ),
+			'layout'       => array( 'title' => __( 'Layout', 'maera_md' ),             'priority' => 20, ),
+			'typography'   => array( 'title' => __( 'Typography', 'maera_md' ),         'priority' => 30, ),
+			'colors'       => array( 'title' => __( 'Colors', 'maera_md' ),             'priority' => 40, ),
+			'blog'         => array( 'title' => __( 'Blog', 'maera_md' ),               'priority' => 50, ),
+			'header_image' => array( 'title' => __( 'Header', 'maera_md' ),             'priority' => 10 ),
+			'advanced'     => array( 'title' => __( 'Advanced', 'maera_md' ),           'priority' => 200 ),
+
+			'nav'          => array( 'title' => __( 'Navigation Menus', 'maera_md' ),   'priority' => 10, 'panel' => 'navigation' ),
+			'nav_options'  => array( 'title' => __( 'Navigation Options', 'maera_md' ), 'priority' => 20, 'panel' => 'navigation' ),
+			'nav_bg'       => array( 'title' => __( 'Navbar Background', 'maera_md' ),  'priority' => 30, 'panel' => 'navigation' ),
+			'offcanvas'    => array( 'title' => __( 'Off-Canvas Menu', 'maera_md' ),    'priority' => 40, 'panel' => 'navigation', 'description' => __( 'The off-canvas menu is only isible if you select the combined nav mode.', 'maera_md' ) ),
+
 		);
 
 		foreach ( $sections as $section => $args ) {
@@ -35,7 +52,7 @@ class Maera_MD_Customizer {
 
 	}
 
-	function settings( $controls ) {
+	function fields( $fields ) {
 
 		$colors = Maera_MD_Data::colors();
 		$colors_array = array();
@@ -43,7 +60,7 @@ class Maera_MD_Customizer {
 			$colors_array[$color] = $definitions['label'];
 		}
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'textarea',
 			'settings' => 'header_content',
 			'label'    => __( 'Header Content', 'textdomain' ),
@@ -52,7 +69,7 @@ class Maera_MD_Customizer {
 			'priority' => 30,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'select',
 			'settings' => 'header_color',
 			'label'    => __( 'Header background shade', 'maera_md' ),
@@ -62,7 +79,7 @@ class Maera_MD_Customizer {
 			'choices'  => $colors_array,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'header_height',
 			'label'    => __( 'Header height (percentage of screen height)', 'maera_md' ),
@@ -81,7 +98,7 @@ class Maera_MD_Customizer {
 			)
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'header_front',
 			'label'    => __( 'Show only on homepage', 'maera_md' ),
@@ -90,7 +107,7 @@ class Maera_MD_Customizer {
 			'priority' => 30,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'radio',
 			'mode'     => 'image',
 			'settings' => 'layout',
@@ -106,7 +123,7 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'site_width',
 			'label'    => __( 'Maximum container width', 'maera_md' ),
@@ -126,7 +143,7 @@ class Maera_MD_Customizer {
 			)
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'sidebar_width',
 			'label'    => __( 'Sidebar Width', 'maera_md' ),
@@ -145,7 +162,7 @@ class Maera_MD_Customizer {
 		$layout = get_theme_mod( 'layout', 1 );
 
 		foreach ( $post_types as $post_type ) {
-			$controls[] = array(
+			$fields[] = array(
 				'type'     => 'radio',
 				'mode'     => 'image',
 				'settings' => $post_type . '_layout',
@@ -162,7 +179,7 @@ class Maera_MD_Customizer {
 			);
 		}
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'radio',
 			'mode'     => 'buttonset',
 			'settings' => 'background_mode',
@@ -176,7 +193,7 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'radio',
 			'mode'     => 'image',
 			'settings' => 'accent_color',
@@ -208,26 +225,35 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'navbar_disable',
 			'label'    => __( 'Disable the Navbar', 'maera_md' ),
-			'section'  => 'nav',
-			'priority' => 30,
+			'description' => __( 'Conpletely disable the navbar', 'maera_md' ),
+			'section'  => 'nav_options',
+			'priority' => 10,
 			'default'  => 0,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
+			'type'     => 'custom',
+			'settings' => 'navbar_disable_separator',
+			'section'  => 'nav_options',
+			'priority' => 11,
+			'default'  => '<hr>',
+		);
+
+		$fields[] = array(
 			'type'     => 'switch',
 			'settings' => 'nav_mode',
 			'label'    => __( 'Use combined nav', 'maera_md' ),
-			'description' => __( 'If you turn on the combined nav then the primary navigation will no longer be used and instead the other 2 menus will be used.', 'maera_md' ),
-			'section'  => 'nav',
-			'priority' => 0,
+			'description' => __( 'When "combined nav" is turned on, your site will display a navbar that will contain the site logo, a searchbar, breadcrumbs and 2 menus: offcanvas and horizontal. Please note that the primary menu will no longer be used, and the new menus are non-hierarchical.', 'maera_md' ),
+			'section'  => 'nav_options',
+			'priority' => 20,
 			'default'  => 0,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'feat_img_height',
 			'label'    => __( 'Featured Image Height on Archives', 'maera_md' ),
@@ -242,7 +268,7 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'select',
 			'settings' => 'blog_mode',
 			'label'    => __( 'Archive display mode', 'maera_md' ),
@@ -255,7 +281,7 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'excerpt_length',
 			'label'    => __( 'Excerpt Length', 'maera_md' ),
@@ -270,7 +296,7 @@ class Maera_MD_Customizer {
 			),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'text',
 			'settings' => 'read_more',
 			'label'    => __( 'Read More label', 'maera_md' ),
@@ -279,7 +305,7 @@ class Maera_MD_Customizer {
 			'default'  => __( 'Read More', 'maera_md' ),
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'textarea',
 			'settings' => 'css',
 			'label'    => __( 'Custom CSS', 'maera_md' ),
@@ -289,7 +315,7 @@ class Maera_MD_Customizer {
 			'default'  => '',
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'textarea',
 			'settings' => 'js',
 			'label'    => __( 'Custom JS', 'maera_md' ),
@@ -299,7 +325,7 @@ class Maera_MD_Customizer {
 			'default'  => '',
 		);
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'flow_text',
 			'label'    => __( 'Enable flow-text', 'maera_md' ),
@@ -308,7 +334,7 @@ class Maera_MD_Customizer {
 			'priority' => 1,
 		);
 
-		$controls[] = array(
+		$fields[] = array(
             'type'     => 'select',
             'settings' => 'font_base_family',
             'label'    => __( 'Base font', 'maera_md' ),
@@ -322,7 +348,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-		$controls[] = array(
+		$fields[] = array(
             'type'     => 'select',
             'settings' => 'font_headers_family',
             'label'    => __( 'Headers font', 'maera_md' ),
@@ -336,7 +362,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-		$controls[] = array(
+		$fields[] = array(
             'type'     => 'multicheck',
             'settings' => 'font_subsets',
             'label'    => __( 'Google-Font subsets', 'maera_md' ),
@@ -351,7 +377,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-		$controls[] = array(
+		$fields[] = array(
 			'type'     => 'slider',
 			'settings' => 'base_font_size',
 			'label'    => __( 'Base font-size', 'maera_md' ),
@@ -370,7 +396,7 @@ class Maera_MD_Customizer {
 			)
 		);
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_base_weight',
             'label'    => __( 'Base Font Weight', 'maera_md' ),
@@ -388,7 +414,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_base_height',
             'label'    => __( 'Base Line Height', 'maera_md' ),
@@ -406,7 +432,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_headers_weight_h1',
             'label'    => __( 'H1 Font Weight', 'maera_md' ),
@@ -424,7 +450,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_headers_weight_h2',
             'label'    => __( 'H2 Font Weight', 'maera_md' ),
@@ -442,7 +468,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_headers_weight_h3',
             'label'    => __( 'H2 Font Weight', 'maera_md' ),
@@ -460,7 +486,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_headers_weight_h4',
             'label'    => __( 'H4 Font Weight', 'maera_md' ),
@@ -478,7 +504,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_h1_size',
             'label'    => __( 'H1 Font Size', 'maera_md' ),
@@ -497,7 +523,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_h2_size',
             'label'    => __( 'H2 Font Size', 'maera_md' ),
@@ -516,7 +542,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_h3_size',
             'label'    => __( 'H3 Font Size', 'maera_md' ),
@@ -535,7 +561,7 @@ class Maera_MD_Customizer {
             ),
         );
 
-        $controls[] = array(
+        $fields[] = array(
             'type'     => 'slider',
             'settings' => 'font_h4_size',
             'label'    => __( 'H4 Font Size', 'maera_md' ),
@@ -554,7 +580,54 @@ class Maera_MD_Customizer {
             ),
         );
 
-		return $controls;
+		$fields[] = array(
+		    'type'        => 'background',
+		    'setting'     => 'nav_background',
+		    'label'       => __( 'Navigation background', 'kirki' ),
+		    'description' => __( 'Choose a background for your main navigation area', 'kirki' ),
+		    'help'        => __( 'This is some extra help. You can use this to add some additional instructions for users. The main description should go in the "description" of the field, this is only to be used for help tips.', 'kirki' ),
+		    'section'     => 'nav_bg',
+		    'default'     => array(
+		        'image'    => '',
+		        'repeat'   => 'no-repeat',
+		        'size'     => 'cover',
+		        'opacity'  => 100
+		    ),
+		    'priority'    => 100,
+		    'output'      => '#header-wrapper',
+		);
+
+		$fields[] = array(
+		    'type'        => 'background',
+		    'setting'     => 'offcanvas_background',
+		    'label'       => __( 'Background for the off-canvas menu', 'kirki' ),
+		    'section'     => 'offcanvas',
+		    'default'     => array(
+		        'color'    => 'rgba(38, 50, 56, .95)',
+		        'image'    => '',
+		        'repeat'   => 'no-repeat',
+		        'size'     => 'cover',
+		        'attach'   => 'fixed',
+		        'position' => 'left-top',
+		    ),
+		    'priority'    => 10,
+		    'output'      => '.left-offcanvas-menu',
+		);
+
+		$fields[] = array(
+		    'type'        => 'color',
+		    'setting'     => 'offcanvas_color',
+		    'label'       => __( 'Text Color for the off-canvas menu', 'kirki' ),
+		    'section'     => 'offcanvas',
+		    'default'     => '#ffffff',
+		    'priority'    => 10,
+		    'output'      => array(
+				'element'  => '.left-offcanvas-menu, .left-offcanvas-menu a, .left-offcanvas-menu a:hover, .left-offcanvas-menu a:visited, .left-offcanvas-menu a:active, .left-offcanvas-menu .dashicons',
+				'property' => 'color',
+			),
+		);
+
+		return $fields;
 
 	}
 
