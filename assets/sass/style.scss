@@ -108,143 +108,22 @@ img, figure {
     padding: 0;
 }
 
-.accent-red {
-    a { color: color("red", "base");
-        &:hover { color: color("red", "darken-1") }
+@each $color_name in 'red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'blue-grey', 'grey' {
+    .accent-#{$color_name} {
+        a {
+            color: color(#{$color_name}, "base");
+            &:hover {
+                color: color(#{$color_name}, "darken-1");
+            }
+        }
+        .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"],
+        .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active {
+            background-color: color(#{$color_name}, "base");
+        }
+        blockquote {
+            border-left: 5px solid color(#{$color_name}, "lighten-3");
+        }
     }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("red", "base"); }
-    blockquote { border-left: 5px solid color("red", "lighten-3"); }
-}
-.accent-pink {
-    a { color: color("pink", "base");
-        &:hover { color: color("pink", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("pink", "base"); }
-    blockquote { border-left: 5px solid color("pink", "lighten-3"); }
-}
-.accent-purple {
-    a { color: color("purple", "base");
-        &:hover { color: color("purple", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("purple", "base"); }
-    blockquote { border-left: 5px solid color("purple", "lighten-3"); }
-}
-.accent-deep-purple {
-    a { color: color("deep-purple", "base");
-        &:hover { color: color("deep-purple", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("deep-purple", "base"); }
-    blockquote { border-left: 5px solid color("deep-purple", "lighten-3"); }
-}
-.accent-indigo {
-    a { color: color("indigo", "base");
-        &:hover { color: color("indigo", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("indigo", "base"); }
-    blockquote { border-left: 5px solid color("indigo", "lighten-3"); }
-}
-.accent-blue {
-    a { color: color("blue", "base");
-        &:hover { color: color("blue", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("blue", "base"); }
-    blockquote { border-left: 5px solid color("blue", "lighten-3"); }
-}
-.accent-light-blue {
-    a { color: color("light-blue", "base");
-        &:hover { color: color("light-blue", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("light-blue", "base"); }
-    blockquote { border-left: 5px solid color("light-blue", "lighten-3"); }
-}
-.accent-cyan {
-    a { color: color("cyan", "base");
-        &:hover { color: color("cyan", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("cyan", "base"); }
-    blockquote { border-left: 5px solid color("cyan", "lighten-3"); }
-}
-.accent-teal {
-    a { color: color("teal", "base");
-        &:hover { color: color("teal", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("teal", "base"); }
-    blockquote { border-left: 5px solid color("teal", "lighten-3"); }
-}
-.accent-green {
-    a { color: color("green", "base");
-        &:hover { color: color("green", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("green", "base"); }
-    blockquote { border-left: 5px solid color("green", "lighten-3"); }
-}
-.accent-light-green {
-    a { color: color("light-green", "base");
-        &:hover { color: color("light-green", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("light-green", "base"); }
-    blockquote { border-left: 5px solid color("light-green", "lighten-3"); }
-    ul#nav-mobile a { color: #333; }
-}
-.accent-lime {
-    a { color: color("lime", "base");
-        &:hover { color: color("lime", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("lime", "base"); }
-    blockquote { border-left: 5px solid color("lime", "lighten-3"); }
-    ul#nav-mobile a { color: #333; }
-}
-.accent-yellow {
-    a { color: color("yellow", "darken-2");
-        &:hover { color: color("yellow", "darken-3") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("yellow", "base"); }
-    blockquote { border-left: 5px solid color("yellow", "lighten-3"); }
-    ul#nav-mobile a { color: #333; }
-}
-.accent-amber {
-    a { color: color("amber", "base");
-        &:hover { color: color("amber", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("amber", "base"); }
-    blockquote { border-left: 5px solid color("amber", "lighten-3"); }
-    ul#nav-mobile a { color: #333; }
-}
-.accent-orange {
-    a { color: color("orange", "base");
-        &:hover { color: color("orange", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("orange", "base"); }
-    blockquote { border-left: 5px solid color("orange", "lighten-3"); }
-}
-.accent-deep-orange {
-    a { color: color("deep-orange", "base");
-        &:hover { color: color("deep-orange", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("deep-orange", "base"); }
-    blockquote { border-left: 5px solid color("deep-orange", "lighten-3"); }
-}
-.accent-brown {
-    a { color: color("brown", "base");
-        &:hover { color: color("brown", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("brown", "base"); }
-    blockquote { border-left: 5px solid color("brown", "lighten-3"); }
-}
-.accent-grey {
-    a { color: color("grey", "base");
-        &:hover { color: color("grey", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("grey", "base"); }
-    blockquote { border-left: 5px solid color("grey", "lighten-3"); }
-    ul#nav-mobile a { color: #333; }
-}
-.accent-blue-grey {
-    a { color: color("blue-grey", "base");
-        &:hover { color: color("blue-grey", "darken-1") }
-    }
-    .btn, .btn-large, button, input[type="button"], input[type="reset"], input[type="submit"], .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active { background-color: color("blue-grey", "base"); }
-    blockquote { border-left: 5px solid color("blue-grey", "lighten-3"); }
 }
 
 .accent-red,
