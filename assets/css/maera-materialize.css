@@ -8963,3 +8963,13 @@ body.static-left-nav {
 @media only screen and (max-width: 992px) {
   body.static-left-nav {
     padding-left: 0; } }
+.side-nav li a.bold {
+  font-weight: 900; }
+.side-nav .collapsible-header {
+  line-height: 64px;
+  margin: 0; }
+.side-nav .collapsible-body {
+  margin-left: -15px;
+  margin-right: -15px; }
+  .side-nav .collapsible-body li a {
+    margin: 0; }
