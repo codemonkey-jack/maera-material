@@ -1,4 +1,4 @@
-=== Maera Material Shell ===
+=== Maera Material Design Shell ===
 Contributors: aristath, fovoc
 Tags: theme extension
 Donate link: http://aristeides.com/
