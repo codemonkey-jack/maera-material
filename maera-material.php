@@ -227,14 +227,13 @@ if ( ! class_exists( 'Maera_Material' ) ) {
 
 }
 
-/**
- * Licensing handler
- */
-function maera_md_licensing() {
+function maera_material_theme_missing() { ?>
 
-	if ( is_admin() && class_exists( 'Maera_Updater' ) ) {
-		$maera_md_license = new Maera_Updater( 'plugin', __FILE__, 'Maera Material Design Shell', MAERA_MD_VER, '@aristath, @fovoc' );
-	}
+	<?php if ( ! class_exists( 'Maera' ) ) : ?>
+		<div class="error">
+			<p><?php _e( 'The Maera theme is not active on your site. The Maera Material Shell plugin <strong>requires</strong> the Maera theme. Please download and install it from the <a href="https://press.codes">PressCodes</a> site.', 'maera_md' ); ?></p>
+		</div>
+	<?php endif;
 
 }
-add_action( 'init', 'maera_md_licensing' );
+add_action( 'admin_notices', 'maera_material_theme_missing' );
