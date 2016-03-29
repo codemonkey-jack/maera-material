@@ -28,8 +28,8 @@ You can select custom colors on a per-page basis, and also per-widget!
 
 **SUPPORT**
 
-We only offer premium support on all Maera Shells. Please visit https://press.codes/support/ for more details.
+We only offer premium support on all Maera Shells. Please visit https://wpsatchel.com/support/ for more details.
 
 == Installation ==
 
-This plugin **requires** the Maera theme framework. You can download it from https://press.codes/
+This plugin **requires** the Maera theme framework. You can download it from https://wpsatchel.com/

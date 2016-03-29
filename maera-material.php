@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name:         Maera Material Design Shell
-Plugin URI:          https://press.codes
+Plugin URI:          https://wpsatchel.com
 Description:         Material Design shell
-Version:             0.95.3
-Author:              Aristeides Stathopoulos
-Author URI:          https://press.codes
+Version:             1.0.0
+Author:              WPSatchel
+Author URI:          https://wpsatchel.com
 Text Domain:         maera_md
 */
 
-define( 'MAERA_MD_VER', '0.95.3' );
+define( 'MAERA_MD_VER', '1.0.0' );
 define( 'MAERA_MATERIAL_SHELL_URL', plugins_url( '', __FILE__ ) );
 define( 'MAERA_MATERIAL_SHELL_PATH', dirname( __FILE__ ) );
 
@@ -231,7 +231,7 @@ function maera_material_theme_missing() { ?>
 
 	<?php if ( ! class_exists( 'Maera' ) ) : ?>
 		<div class="error">
-			<p><?php _e( 'The Maera theme is not active on your site. The Maera Material Shell plugin <strong>requires</strong> the Maera theme. Please download and install it from the <a href="https://press.codes">PressCodes</a> site.', 'maera_md' ); ?></p>
+			<p><?php _e( 'The Maera theme is not active on your site. The Maera Material Shell plugin <strong>requires</strong> the Maera theme. Please download and install it from the <a href="https://wpsatchel.com">WPSatchel</a> site.', 'maera_md' ); ?></p>
 		</div>
 	<?php endif;
 
